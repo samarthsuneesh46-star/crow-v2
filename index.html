@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Corvus Files</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<section id="home" class="page active">
+<h1>THE CORVUS FILES</h1>
+<p>A Cooperative Detective Investigation</p>
+<button onclick="go('briefing')">START INVESTIGATION</button>
+</section>
+
+<section id="briefing" class="page">
+<h2>METROPOLITAN DETECTIVE DIVISION</h2>
+<p>You have been assigned to review active investigations.</p>
+<div class="nav"><button onclick="go('home')">← BACK</button><button onclick="go('hub')">BEGIN INVESTIGATION</button></div>
+</section>
+
+<section id="hub" class="page">
+<h2>ACTIVE CASES</h2>
+<div id="case1">▶ Case 1 – The Stolen Necklace</div>
+<button onclick="go('cover')">OPEN CASE 1</button>
+<p>🔒 Cases 2–9 Locked</p>
+<button onclick="go('briefing')">← BACK</button>
+</section>
+
+<section id="cover" class="page">
+<h2>CASE 1 – THE STOLEN NECKLACE</h2>
+<p>Case Number: RE-2026-BF094</p>
+<p>Status: OPEN</p>
+<div class="nav"><button onclick="go('hub')">← BACK</button><button onclick="go('overview')">OPEN CASE FILE</button></div>
+</section>
+
+<section id="overview" class="page">
+<h2>CASE OVERVIEW</h2>
+<p>A dossier of evidence has been provided for review.</p>
+<p><strong>E01 – Case File (Read First)</strong></p>
+<div class="nav"><button onclick="go('cover')">← BACK</button><button onclick="go('evidence')">ACCESS EVIDENCE</button></div>
+</section>
+
+<section id="evidence" class="page">
+<h2>EVIDENCE PORTAL</h2>
+<p>E01 – Case File (Read First)</p>
+<p>E02 – Gala Program</p>
+<p>E03–E07 – Suspect Interviews</p>
+<p>E08–E10 – Witness Statements</p>
+<textarea id="notes" placeholder="Investigator Notes"></textarea>
+<div class="nav"><button onclick="go('overview')">← BACK</button><button onclick="go('confirm')">READY TO SUBMIT FINDINGS</button></div>
+</section>
+
+<section id="confirm" class="page">
+<h2>READY TO SUBMIT FINDINGS?</h2>
+<div class="nav"><button onclick="go('evidence')">← RETURN TO EVIDENCE</button><button onclick="go('m1')">CONTINUE</button></div>
+</section>
+
+<section id="m1" class="page">
+<h2>MANDATE 1</h2>
+<p>Who stole the Muninn Necklace?</p>
+<label><input type="radio" name="q1"> Victor Hale</label><br>
+<label><input type="radio" name="q1" id="correct1"> Amelia Voss</label><br>
+<label><input type="radio" name="q1"> Olivia Kane</label><br>
+<label><input type="radio" name="q1"> Adrian Blackwood</label><br><br>
+<button onclick="check1()">SUBMIT</button>
+<p id="msg1"></p>
+</section>
+
+<section id="m2" class="page">
+<h2>MANDATE 2</h2>
+<p>How did Amelia Voss steal the Muninn Necklace?</p>
+<label><input type="radio" name="q2"> Removed it without replacement</label><br>
+<label><input type="radio" name="q2"> Triggered alarm distraction</label><br>
+<label><input type="radio" name="q2" id="correct2"> Swapped genuine necklace with replica</label><br>
+<label><input type="radio" name="q2"> Used forged pass after gala</label><br><br>
+<button onclick="check2()">SUBMIT</button>
+<p id="msg2"></p>
+</section>
+
+<section id="closed" class="page">
+<h2>CASE CLOSED</h2>
+<p>Perpetrator: Amelia Voss</p>
+<p>Method: Replica substitution</p>
+<button onclick="go('hub')">RETURN TO CASE HUB</button>
+<button onclick="go('home')">HOME</button>
+</section>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
